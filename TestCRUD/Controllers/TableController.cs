@@ -36,5 +36,10 @@ namespace TestCRUD.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
     }
 }

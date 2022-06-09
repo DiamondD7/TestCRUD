@@ -1,0 +1,18 @@
+﻿@model StudentModel
+
+
+<form method="post" asp-action="Edit">
+    <div class="form-control">
+        <label>Student Name</label>
+        <input asp-for="StudentName" placeholder="Name" />
+    </div>
+    <div class="form-control">
+        <label>University</label>
+        <input asp-for="University" placeholder="School" />
+    </div>
+    <div class="form-control">
+        <label>City</label>
+        <input asp-for="City" placeholder="eg. Auckland" />
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
