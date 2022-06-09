@@ -22,9 +22,12 @@ namespace TestCRUD.Controllers
             return View(students);
         }
 
-        public IActionResult Create()
+        public IActionResult Create(StudentModel student)
         {
-
+            _context.Students.Add(student);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
+
     }
 }
