@@ -21,5 +21,10 @@ namespace TestCRUD.Controllers
             IEnumerable <StudentModel> students = _context.Students;
             return View(students);
         }
+
+        public IActionResult Create()
+        {
+
+        }
     }
 }
