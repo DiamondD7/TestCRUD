@@ -36,16 +36,17 @@ namespace TestCRUD.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            var findId = _context.Students.Find(id);
-            return View(findId);
+            StudentModel student = await _context.Students.FindAsync(id);
+            return View(student);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(StudentModel studentEdit)
         {
-            _context.Students.Add(studentEdit);
+            _context.Students.Update(studentEdit);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
