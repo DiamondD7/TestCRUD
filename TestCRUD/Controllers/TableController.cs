@@ -36,9 +36,9 @@ namespace TestCRUD.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
-            StudentModel student = await _context.Students.FindAsync(id);
+            var student = _context.Students.Find(id);
             return View(student);
         }
 

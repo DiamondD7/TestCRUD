@@ -17,7 +17,7 @@
                 <td>@i.StudentName</td>
                 <td>@i.University</td>
                 <td>@i.City</td>
-                <td><a class="btn btn-primary text-white text-center" asp-area="" asp-controller="Table" asp-action="Edit">Edit</a></td>
+                <td><a class="btn btn-primary text-white text-center" asp-area="" asp-controller="Table" asp-action="Edit" asp-route-Id="@i.Id">Edit</a></td>
                 <td><a class="btn btn-danger text-white text-center">Delete</a></td>
             </tr>
         }
