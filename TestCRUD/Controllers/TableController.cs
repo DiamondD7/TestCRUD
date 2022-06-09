@@ -36,10 +36,18 @@ namespace TestCRUD.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            var findId = _context.Students.Find(id);
+            return View(findId);
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(StudentModel studentEdit)
+        {
+            _context.Students.Add(studentEdit);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
