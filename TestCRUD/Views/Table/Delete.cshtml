@@ -1,0 +1,12 @@
+﻿@model StudentModel
+
+<h2>Are you sure you want to delete?</h2>
+<div>
+    <label>Name: @Model.StudentName</label>
+    <label>Uni: @Model.University</label>
+    <label>City: @Model.City</label>
+    <form method="post" asp-action="Delete">
+        <button class="btn btn-danger text-white" type="submit">Delete</button>
+        <button class="btn btn-light text-black" asp-action="Index">Cancel</button>
+    </form>
+</div>
