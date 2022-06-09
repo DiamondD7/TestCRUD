@@ -22,6 +22,13 @@ namespace TestCRUD.Controllers
             return View(students);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(StudentModel student)
         {
             _context.Students.Add(student);
