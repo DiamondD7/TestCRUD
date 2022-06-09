@@ -3,14 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TestCRUD.Data;
+using TestCRUD.Models;
 
 namespace TestCRUD.Controllers
 {
     public class TableController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public TableController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            return View();
+            IEnumerable <StudentModel> students = _context.Students;
+            return View(students);
         }
     }
 }
