@@ -50,5 +50,20 @@ namespace TestCRUD.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Delete(int? id)
+        {
+            var student = _context.Students.Find(id);
+            return View(student);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(StudentModel studentEdit)
+        {
+            _context.Students.Remove(studentEdit);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
